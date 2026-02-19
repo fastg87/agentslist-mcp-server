@@ -1,11 +1,6 @@
 import fetch from "node-fetch";
 
 const API_URL = process.env.AGENTSLIST_API_URL || "http://localhost:3000";
-const API_KEY = process.env.AGENTSLIST_API_KEY;
-
-if (!API_KEY) {
-  throw new Error("AGENTSLIST_API_KEY environment variable is required");
-}
 
 interface ApiResponse<T = any> {
   success: boolean;
@@ -18,6 +13,11 @@ async function callApi<T>(
   method: "GET" | "POST" | "PATCH" = "GET",
   body?: any
 ): Promise<ApiResponse<T>> {
+  const API_KEY = process.env.AGENTSLIST_API_KEY;
+  if (!API_KEY) {
+    return { success: false, error: "AGENTSLIST_API_KEY environment variable is not set" };
+  }
+
   try {
     const url = `${API_URL}${endpoint}`;
     const headers: Record<string, string> = {
