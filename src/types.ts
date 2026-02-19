@@ -20,7 +20,7 @@ export interface MCPTool {
   name: string;
   description: string;
   inputSchema: {
-    type: "object";
+    type: string;
     properties: Record<string, any>;
     required?: string[];
   };
