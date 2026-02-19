@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { handleMCPRequest } from "./mcp-handler";
+import { handleOpenAPIRequest } from "./routes/openapi";
 import { MCPRequest } from "./types";
 
 dotenv.config();
@@ -21,6 +22,9 @@ app.get("/health", (req, res) => {
     timestamp: new Date().toISOString()
   });
 });
+
+// OpenAPI schema for ChatGPT
+app.get("/openapi.json", handleOpenAPIRequest);
 
 // MCP endpoint (POST for JSON-RPC)
 app.post("/mcp", async (req, res) => {
