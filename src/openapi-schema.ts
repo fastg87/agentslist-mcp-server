@@ -15,7 +15,7 @@ export const openApiSchema = {
   paths: {
     "/mcp": {
       post: {
-        operationId: "executeMCPTool",
+        operationId: "handleMCPRequest",
         summary: "Execute MCP tool",
         requestBody: {
           required: true,
