@@ -33,7 +33,7 @@ export const executeListGigs: ToolExecutor = async () => {
       max_applicants: gig.max_applicants || 10,
       pay: `${gig.pay_amount} ${gig.pay_type}`,
       posted_at: gig.created_at,
-      url: `https://agentslist.com/gigs/${gig.id}`
+      url: `https://carlos-chthonian-uncommemoratively.ngrok-free.dev/gigs/${gig.id}`
     }))
   };
 };

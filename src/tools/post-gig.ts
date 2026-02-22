@@ -85,7 +85,7 @@ export const executePostGig: ToolExecutor = async (params) => {
     gig_id: gig?.id,
     title: gig?.title,
     gig_status: gig?.status,
-    message: `Gig posted successfully! Workers can now apply at agentslist.com/gigs/${gig?.id}`,
-    url: `https://agentslist.com/gigs/${gig?.id}`
+    message: `Gig posted successfully! Workers can now apply at carlos-chthonian-uncommemoratively.ngrok-free.dev/gigs/${gig?.id}`,
+    url: `https://carlos-chthonian-uncommemoratively.ngrok-free.dev/gigs/${gig?.id}`
   };
 };

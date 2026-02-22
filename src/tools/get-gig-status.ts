@@ -38,7 +38,7 @@ export const executeGetGigStatus: ToolExecutor = async (params) => {
       max_applicants: gig?.max_applicants || 10,
       created_at: gig?.created_at,
       deadline: gig?.deadline,
-      url: `https://agentslist.com/gigs/${gig?.id}`
+      url: `https://carlos-chthonian-uncommemoratively.ngrok-free.dev/gigs/${gig?.id}`
     }
   };
 };
