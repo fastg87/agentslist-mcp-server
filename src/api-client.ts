@@ -85,8 +85,40 @@ export const apiClient = {
     return callApi(`/api/agent/gigs/${gigId}/applications`);
   },
 
+  // Update a gig's fields
+  updateGig: async (gigId: string, updates: {
+    title?: string;
+    description?: string;
+    status?: string;
+    deadline?: string;
+    pay_amount?: number;
+  }) => {
+    return callApi(`/api/agent/gigs/${gigId}`, "PATCH", updates);
+  },
+
   // Accept or reject an application
   updateApplication: async (applicationId: string, status: "accepted" | "rejected") => {
     return callApi(`/api/agent/applications/${applicationId}`, "PATCH", { status });
+  },
+
+  // Send a message to a worker
+  sendMessage: async (params: {
+    gig_id: string;
+    recipient_id: string;
+    recipient_type: "agent" | "worker";
+    message_text: string;
+  }) => {
+    return callApi("/api/agent/messages", "POST", params);
+  },
+
+  // Get conversation messages for a gig
+  getConversation: async (gigId: string, workerId?: string) => {
+    const query = workerId ? `?worker_id=${workerId}` : "";
+    return callApi(`/api/agent/gigs/${gigId}/messages${query}`);
+  },
+
+  // Mark messages as read
+  markMessagesRead: async (gigId: string) => {
+    return callApi(`/api/agent/gigs/${gigId}/messages/read`, "POST");
   },
 };

@@ -5,6 +5,13 @@ import { listGigsTool, executeListGigs } from "./tools/list-gigs";
 import { getApplicationsTool, executeGetApplications } from "./tools/get-applications";
 import { acceptWorkerTool, executeAcceptWorker } from "./tools/accept-worker";
 import { getGigStatusTool, executeGetGigStatus } from "./tools/get-gig-status";
+import { getGigDashboardTool, executeGetGigDashboard } from "./tools/get-gig-dashboard";
+import { getAllGigsSummaryTool, executeGetAllGigsSummary } from "./tools/get-all-gigs-summary";
+import { sendMessageTool, executeSendMessage } from "./tools/send-message";
+import { getConversationTool, executeGetConversation } from "./tools/get-conversation";
+import { updateGigTool, executeUpdateGig } from "./tools/update-gig";
+import { withdrawGigTool, executeWithdrawGig } from "./tools/withdraw-gig";
+import { reopenGigTool, executeReopenGig } from "./tools/reopen-gig";
 
 const tools: MCPTool[] = [
   pingTool,
@@ -13,6 +20,13 @@ const tools: MCPTool[] = [
   getApplicationsTool,
   acceptWorkerTool,
   getGigStatusTool,
+  getGigDashboardTool,
+  getAllGigsSummaryTool,
+  sendMessageTool,
+  getConversationTool,
+  updateGigTool,
+  withdrawGigTool,
+  reopenGigTool,
 ];
 
 const toolExecutors: Record<string, ToolExecutor> = {
@@ -22,6 +36,13 @@ const toolExecutors: Record<string, ToolExecutor> = {
   get_applications: executeGetApplications,
   accept_worker: executeAcceptWorker,
   get_gig_status: executeGetGigStatus,
+  get_gig_dashboard: executeGetGigDashboard,
+  get_all_gigs_summary: executeGetAllGigsSummary,
+  send_message: executeSendMessage,
+  get_conversation: executeGetConversation,
+  update_gig: executeUpdateGig,
+  withdraw_gig: executeWithdrawGig,
+  reopen_gig: executeReopenGig,
 };
 
 export async function handleMCPRequest(request: MCPRequest): Promise<MCPResponse> {
